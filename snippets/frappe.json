@@ -2,7 +2,6 @@
   "Frappe Python Get List": {
     "prefix": "frappe-getlist",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def get_${1:doctype}_list():",
@@ -15,7 +14,6 @@
   "Frappe Python Get Doc": {
     "prefix": "frappe-getdoc",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def get_${1:doctype}_doc(${2:name}):",
@@ -26,7 +24,6 @@
   "Frappe Python Insert": {
     "prefix": "frappe-insert",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def insert_${1:doctype}():",
@@ -42,7 +39,6 @@
   "Frappe Python Update": {
     "prefix": "frappe-update",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def update_${1:doctype}(${2:name}):",
@@ -56,7 +52,6 @@
   "Frappe Python Delete": {
     "prefix": "frappe-delete",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def delete_${1:doctype}(${2:name}):",
@@ -167,7 +162,6 @@
   "Frappe Python DB Set Value": {
     "prefix": "frappe-dbset",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def set_${1:doctype}_${2:field}(${3:name}, ${4:value}):",
@@ -179,7 +173,6 @@
   "Frappe Python Get All": {
     "prefix": "frappe-getall",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def get_all_${1:doctype}():",
@@ -190,7 +183,6 @@
   "Frappe Python Background Job": {
     "prefix": "frappe-bgjob",
     "body": [
-      "import frappe",
       "from frappe import enqueue",
       "",
       "@frappe.whitelist()",
@@ -206,7 +198,6 @@
   "Frappe Python Scheduler Event": {
     "prefix": "frappe-scheduler",
     "body": [
-      "import frappe",
       "",
       "def ${1:my_scheduled_task}():",
       "    ${2:# Your scheduled code here}"
@@ -216,7 +207,6 @@
   "Frappe Python Report Script": {
     "prefix": "frappe-report",
     "body": [
-      "import frappe",
       "",
       "def execute(filters=None):",
       "    columns = [",
@@ -352,7 +342,7 @@
   "Frappe Workflow Change State": {
     "prefix": "frappe-workflow",
     "body": [
-      "import frappe",
+
       "",
       "@frappe.whitelist()",
       "def change_state(${1:doctype}, ${2:name}, ${3:state}):",
@@ -367,7 +357,6 @@
   "Frappe Patch File": {
     "prefix": "frappe-patch",
     "body": [
-      "import frappe",
       "",
       "def execute():",
       "    ${1:# Your patch logic here}",
@@ -379,7 +368,6 @@
   "Frappe Debug Print": {
     "prefix": "frappe-debug",
     "body": [
-      "import frappe",
       "",
       "def debug_me():",
       "    frappe.log_error(message=frappe.as_json(${1:variable}), title='Debug Log')"
@@ -390,7 +378,6 @@
   "ERPNext Payment Entry Creation": {
     "prefix": "erp-paymententry",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def create_payment_entry(${1:party_type}, ${2:party}, ${3:amount}):",
@@ -414,7 +401,6 @@
   "ERPNext Sales Invoice Creation": {
     "prefix": "erp-salesinvoice",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def create_sales_invoice(${1:customer}, ${2:item_code}, ${3:qty}, ${4:rate}):",
@@ -437,7 +423,6 @@
   "ERPNext Stock Entry Creation": {
     "prefix": "erp-stockentry",
     "body": [
-      "import frappe",
       "",
       "@frappe.whitelist()",
       "def create_stock_entry(${1:item_code}, ${2:qty}, ${3:from_warehouse}, ${4:to_warehouse}):",
