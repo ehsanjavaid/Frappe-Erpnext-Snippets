@@ -1,8 +1,9 @@
 {
-  "name": "frappe-erpnext-snippets-extension",
-  "displayName": "Frappe/ERPNext Snippets Extension",
-  "description": "Frappe/ERPNext Snippets ",
-  "version": "0.0.1",
+  "name": "frappe-erpnext-snippets",
+  "displayName": "Frappe ERPNext Snippets",
+  "description": "Ready-to-use Frappe Framework & ERPNext code snippets for Python, JS, and Jinja. ",
+  "publisher": "FrappeERPnextSnippets",
+  "version": "1.0.0",
   "icon": "assets/icon.png",
   "galleryBanner": {
     "color": "#2490ef",
@@ -12,8 +13,14 @@
     "vscode": "^1.102.0"
   },
   "categories": [
-    "Other"
+    "Snippets"
   ],
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/ehsanjavaid/Frappe-Erpnext-Snippets"
+},
+"license": "MIT",
+
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
