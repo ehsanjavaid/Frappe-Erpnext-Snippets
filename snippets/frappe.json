@@ -1,0 +1,460 @@
+{
+  "Frappe Python Get List": {
+    "prefix": "frappe-getlist",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def get_${1:doctype}_list():",
+      "    return frappe.get_list('${1:doctype}',",
+      "        filters=${2:{}},",
+      "        fields=${3:['name', 'creation']})"
+    ],
+    "description": "Get list of documents from a Doctype"
+  },
+  "Frappe Python Get Doc": {
+    "prefix": "frappe-getdoc",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def get_${1:doctype}_doc(${2:name}):",
+      "    return frappe.get_doc('${1:doctype}', ${2:name})"
+    ],
+    "description": "Get a single document by name"
+  },
+  "Frappe Python Insert": {
+    "prefix": "frappe-insert",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def insert_${1:doctype}():",
+      "    doc = frappe.get_doc({",
+      "        'doctype': '${1:doctype}',",
+      "        ${2:'field': 'value'}",
+      "    })",
+      "    doc.insert()",
+      "    return doc"
+    ],
+    "description": "Insert a new document in Frappe"
+  },
+  "Frappe Python Update": {
+    "prefix": "frappe-update",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def update_${1:doctype}(${2:name}):",
+      "    doc = frappe.get_doc('${1:doctype}', ${2:name})",
+      "    doc.${3:field} = ${4:value}",
+      "    doc.save()",
+      "    return doc"
+    ],
+    "description": "Update an existing document"
+  },
+  "Frappe Python Delete": {
+    "prefix": "frappe-delete",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def delete_${1:doctype}(${2:name}):",
+      "    frappe.delete_doc('${1:doctype}', ${2:name})",
+      "    return 'Deleted successfully'"
+    ],
+    "description": "Delete a document in Frappe"
+  },
+
+  "Bench Start": {
+    "prefix": "bench-start",
+    "body": ["bench start"],
+    "description": "Start the Frappe development server"
+  },
+  "Bench New App": {
+    "prefix": "bench-newapp",
+    "body": ["bench new-app ${1:app_name}"],
+    "description": "Create a new Frappe app"
+  },
+  "Bench New Site": {
+    "prefix": "bench-newsite",
+    "body": ["bench new-site ${1:site_name}"],
+    "description": "Create a new Frappe site"
+  },
+  "Bench Migrate": {
+    "prefix": "bench-migrate",
+    "body": ["bench migrate"],
+    "description": "Apply schema changes"
+  },
+  "Bench Restart": {
+    "prefix": "bench-restart",
+    "body": ["bench restart"],
+    "description": "Restart Frappe services"
+  },
+
+  "Jinja For Loop": {
+    "prefix": "jinja-for",
+    "body": [
+      "{% for ${1:item} in ${2:items} %}",
+      "  {{ ${1:item} }}",
+      "{% endfor %}"
+    ],
+    "description": "Loop through items in Jinja template"
+  },
+  "Jinja If Condition": {
+    "prefix": "jinja-if",
+    "body": [
+      "{% if ${1:condition} %}",
+      "  ${2:content}",
+      "{% endif %}"
+    ],
+    "description": "If condition in Jinja"
+  },
+  "Jinja If Else": {
+    "prefix": "jinja-ifelse",
+    "body": [
+      "{% if ${1:condition} %}",
+      "  ${2:content_if_true}",
+      "{% else %}",
+      "  ${3:content_if_false}",
+      "{% endif %}"
+    ],
+    "description": "If-Else condition in Jinja"
+  },
+
+
+  "ERPNext Print Format Header": {
+    "prefix": "erp-print-header",
+    "body": [
+      "<div class='print-heading'>",
+      "  <h2>${1:Company Name}</h2>",
+      "  <p>${2:Address}</p>",
+      "</div>"
+    ],
+    "description": "Basic print format header"
+  },
+  "ERPNext Print Format Table": {
+    "prefix": "erp-print-table",
+    "body": [
+      "<table class='table table-bordered'>",
+      "  <thead>",
+      "    <tr>",
+      "      <th>${1:Column 1}</th>",
+      "      <th>${2:Column 2}</th>",
+      "    </tr>",
+      "  </thead>",
+      "  <tbody>",
+      "    {% for row in ${3:items} %}",
+      "    <tr>",
+      "      <td>{{ row.${4:field1} }}</td>",
+      "      <td>{{ row.${5:field2} }}</td>",
+      "    </tr>",
+      "    {% endfor %}",
+      "  </tbody>",
+      "</table>"
+    ],
+    "description": "ERPNext print format table layout"
+  },
+  "ERPNext Doc Field": {
+    "prefix": "erp-doc-field",
+    "body": ["{{ doc.${1:fieldname} }}"],
+    "description": "Insert a field from the document in print format"
+  },
+
+
+
+
+  "Frappe Python DB Set Value": {
+    "prefix": "frappe-dbset",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def set_${1:doctype}_${2:field}(${3:name}, ${4:value}):",
+      "    frappe.db.set_value('${1:doctype}', ${3:name}, '${2:field}', ${4:value})",
+      "    return 'Value updated successfully'"
+    ],
+    "description": "Set a field value in the database directly"
+  },
+  "Frappe Python Get All": {
+    "prefix": "frappe-getall",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def get_all_${1:doctype}():",
+      "    return frappe.get_all('${1:doctype}', fields=${2:['name']})"
+    ],
+    "description": "Get all documents from a DocType"
+  },
+  "Frappe Python Background Job": {
+    "prefix": "frappe-bgjob",
+    "body": [
+      "import frappe",
+      "from frappe import enqueue",
+      "",
+      "@frappe.whitelist()",
+      "def start_${1:job_name}():",
+      "    enqueue('${2:app.module.function}',",
+      "        queue='${3:default}',",
+      "        timeout=${4:300},",
+      "        job_name='${1:job_name}')",
+      "    return 'Job queued successfully'"
+    ],
+    "description": "Enqueue a background job"
+  },
+  "Frappe Python Scheduler Event": {
+    "prefix": "frappe-scheduler",
+    "body": [
+      "import frappe",
+      "",
+      "def ${1:my_scheduled_task}():",
+      "    ${2:# Your scheduled code here}"
+    ],
+    "description": "Define a scheduled task for hooks.py"
+  },
+  "Frappe Python Report Script": {
+    "prefix": "frappe-report",
+    "body": [
+      "import frappe",
+      "",
+      "def execute(filters=None):",
+      "    columns = [",
+      "        {'label': 'Name', 'fieldname': 'name', 'fieldtype': 'Data', 'width': 150},",
+      "        {'label': 'Creation', 'fieldname': 'creation', 'fieldtype': 'Datetime', 'width': 150}",
+      "    ]",
+      "    data = frappe.get_all('${1:DocType}', fields=['name', 'creation'])",
+      "    return columns, data"
+    ],
+    "description": "Template for Frappe report script"
+  },
+  "Frappe Custom Script On Form Load": {
+    "prefix": "frappe-formload",
+    "body": [
+      "frappe.ui.form.on('${1:DocType}', {",
+      "    onload(frm) {",
+      "        ${2:// Your onload code here}",
+      "    }",
+      "});"
+    ],
+    "description": "Client-side script for form onload event"
+  },
+  "Frappe Custom Script On Field Change": {
+    "prefix": "frappe-fieldchange",
+    "body": [
+      "frappe.ui.form.on('${1:DocType}', {",
+      "    ${2:fieldname}(frm) {",
+      "        ${3:// Your field change code here}",
+      "    }",
+      "});"
+    ],
+    "description": "Trigger when a field value changes"
+  },
+  "Jinja Table Loop": {
+    "prefix": "jinja-table",
+    "body": [
+      "<table>",
+      "  <thead>",
+      "    <tr>",
+      "      <th>${1:Header 1}</th>",
+      "      <th>${2:Header 2}</th>",
+      "    </tr>",
+      "  </thead>",
+      "  <tbody>",
+      "    {% for row in ${3:items} %}",
+      "    <tr>",
+      "      <td>{{ row.${4:field1} }}</td>",
+      "      <td>{{ row.${5:field2} }}</td>",
+      "    </tr>",
+      "    {% endfor %}",
+      "  </tbody>",
+      "</table>"
+    ],
+    "description": "Jinja loop for table generation"
+  },
+  "ERPNext Add Custom Field": {
+    "prefix": "erp-addcustomfield",
+    "body": [
+      "import frappe",
+      "from frappe.custom.doctype.custom_field.custom_field import create_custom_field",
+      "",
+      "def add_custom_field():",
+      "    field = {",
+      "        'fieldname': '${1:custom_field}',",
+      "        'label': '${2:Custom Field}',",
+      "        'fieldtype': '${3:Data}',",
+      "        'insert_after': '${4:existing_field}',",
+      "    }",
+      "    create_custom_field('${5:DocType}', field)"
+    ],
+    "description": "Programmatically add a custom field"
+  },
+  "ERPNext Hook Event": {
+    "prefix": "erp-hook",
+    "body": [
+      "'${1:DocType}': {",
+      "    'on_update': '${2:app.module.function}',",
+      "    'after_insert': '${3:app.module.function}',",
+      "    'on_trash': '${4:app.module.function}'",
+      "}"
+    ],
+    "description": "Hook events for a DocType"
+  },
+  
+  
+  "Frappe Python REST GET": {
+    "prefix": "frappe-restget",
+    "body": [
+      "import requests",
+      "",
+      "def get_data():",
+      "    url = '${1:https://yoursite.com}/api/resource/${2:DocType}'",
+      "    headers = {",
+      "        'Authorization': 'token ${3:api_key}:${4:api_secret}'",
+      "    }",
+      "    res = requests.get(url, headers=headers)",
+      "    return res.json()"
+    ],
+    "description": "Python: Call Frappe REST API (GET)"
+  },
+  "Frappe Python REST POST": {
+    "prefix": "frappe-restpost",
+    "body": [
+      "import requests",
+      "",
+      "def create_doc():",
+      "    url = '${1:https://yoursite.com}/api/resource/${2:DocType}'",
+      "    headers = {",
+      "        'Authorization': 'token ${3:api_key}:${4:api_secret}'",
+      "    }",
+      "    payload = {",
+      "        '${5:fieldname}': '${6:value}'",
+      "    }",
+      "    res = requests.post(url, json=payload, headers=headers)",
+      "    return res.json()"
+    ],
+    "description": "Python: Call Frappe REST API (POST)"
+  },
+  "Frappe JS REST Call": {
+    "prefix": "frappe-jsrest",
+    "body": [
+      "frappe.call({",
+      "    method: '${1:app.module.method}',",
+      "    args: { ${2:arg_name}: ${3:value} },",
+      "    callback: function(r) {",
+      "        console.log(r.message);",
+      "    }",
+      "});"
+    ],
+    "description": "JavaScript: frappe.call wrapper"
+  },
+
+  "Frappe Workflow Change State": {
+    "prefix": "frappe-workflow",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def change_state(${1:doctype}, ${2:name}, ${3:state}):",
+      "    doc = frappe.get_doc(${1:doctype}, ${2:name})",
+      "    doc.workflow_state = ${3:state}",
+      "    doc.save(ignore_permissions=True)",
+      "    return doc"
+    ],
+    "description": "Change Workflow State programmatically"
+  },
+
+  "Frappe Patch File": {
+    "prefix": "frappe-patch",
+    "body": [
+      "import frappe",
+      "",
+      "def execute():",
+      "    ${1:# Your patch logic here}",
+      "    frappe.db.commit()"
+    ],
+    "description": "Template for a Frappe patch file"
+  },
+
+  "Frappe Debug Print": {
+    "prefix": "frappe-debug",
+    "body": [
+      "import frappe",
+      "",
+      "def debug_me():",
+      "    frappe.log_error(message=frappe.as_json(${1:variable}), title='Debug Log')"
+    ],
+    "description": "Log debug info to Frappe error log"
+  },
+
+  "ERPNext Payment Entry Creation": {
+    "prefix": "erp-paymententry",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def create_payment_entry(${1:party_type}, ${2:party}, ${3:amount}):",
+      "    pe = frappe.get_doc({",
+      "        'doctype': 'Payment Entry',",
+      "        'payment_type': 'Receive',",
+      "        'party_type': ${1:party_type},",
+      "        'party': ${2:party},",
+      "        'paid_amount': ${3:amount},",
+      "        'received_amount': ${3:amount},",
+      "        'mode_of_payment': '${4:Cash}',",
+      "        'posting_date': frappe.utils.nowdate()",
+      "    })",
+      "    pe.insert(ignore_permissions=True)",
+      "    pe.submit()",
+      "    return pe"
+    ],
+    "description": "Programmatically create a Payment Entry"
+  },
+
+  "ERPNext Sales Invoice Creation": {
+    "prefix": "erp-salesinvoice",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def create_sales_invoice(${1:customer}, ${2:item_code}, ${3:qty}, ${4:rate}):",
+      "    si = frappe.get_doc({",
+      "        'doctype': 'Sales Invoice',",
+      "        'customer': ${1:customer},",
+      "        'items': [{",
+      "            'item_code': ${2:item_code},",
+      "            'qty': ${3:qty},",
+      "            'rate': ${4:rate}",
+      "        }]",
+      "    })",
+      "    si.insert(ignore_permissions=True)",
+      "    si.submit()",
+      "    return si"
+    ],
+    "description": "Create a Sales Invoice programmatically"
+  },
+
+  "ERPNext Stock Entry Creation": {
+    "prefix": "erp-stockentry",
+    "body": [
+      "import frappe",
+      "",
+      "@frappe.whitelist()",
+      "def create_stock_entry(${1:item_code}, ${2:qty}, ${3:from_warehouse}, ${4:to_warehouse}):",
+      "    se = frappe.get_doc({",
+      "        'doctype': 'Stock Entry',",
+      "        'stock_entry_type': 'Material Transfer',",
+      "        'items': [{",
+      "            'item_code': ${1:item_code},",
+      "            'qty': ${2:qty},",
+      "            's_warehouse': ${3:from_warehouse},",
+      "            't_warehouse': ${4:to_warehouse}",
+      "        }]",
+      "    })",
+      "    se.insert(ignore_permissions=True)",
+      "    se.submit()",
+      "    return se"
+    ],
+    "description": "Create a Stock Entry programmatically"
+  }
+}
