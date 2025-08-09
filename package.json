@@ -3,6 +3,11 @@
   "displayName": "Frappe/ERPNext Snippets Extension",
   "description": "Frappe/ERPNext Snippets ",
   "version": "0.0.1",
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#2490ef",
+    "theme": "light"
+  },
   "engines": {
     "vscode": "^1.102.0"
   },

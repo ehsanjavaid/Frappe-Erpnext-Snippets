@@ -24,7 +24,7 @@ You can install this extension from the [Visual Studio Marketplace](https://mark
 **From Command Line:**
 ```bash
 code --install-extension FrappeERPnextSnippets.frappe-erpnext-snippets
-
+```bash
 🚀 Usage
 Open a .py, .js, or .html/jinja file in VS Code.
 
@@ -33,37 +33,38 @@ Start typing the snippet prefix (e.g., frappe.get_doc, frappe.call) to trigger I
 Press Tab or Enter to insert the snippet.
 
 Example:
-
+```bash
 python
 Copy
 Edit
+```bash
 frappe.get_doc({
     "doctype": "Sales Invoice",
     "customer": "Customer Name"
 }).insert()
-
+```bash
 🛠 Development
 If you want to modify or add new snippets:
 
 Clone this repo:
 
-bash
+```bash
 Copy
 Edit
 git clone https://github.com/ehsanjavaid/frappe-erpnext-snippets.git
-
+```bash
 Open in VS Code.
 
 Edit snippets/*.json to add/update snippets.
 
 Run:
 
-bash
+```bash
 Copy
 Edit
 vsce package
 to build the .vsix file.
-
+```bash
 🤝 Contributing
 Pull requests are welcome!
 If you’d like to improve or add new snippets:
