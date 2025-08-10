@@ -1,69 +1,47 @@
 # Frappe ERPNext Snippets
 
-A Visual Studio Code extension that provides handy code snippets for faster development with Frappe Framework and ERPNext.  
-Boost your productivity by quickly inserting common patterns, API calls, hooks, and other frequently used code blocks in your Frappe/ERPNext apps.
+A VS Code extension with handy snippets for faster development in Frappe Framework and ERPNext. Quickly insert common patterns, API calls, hooks, and more.
 
 ✨ **Features**
 
-- Prebuilt Frappe Snippets – Commands, DocTypes, API calls, and server scripts.
-- ERPNext Utilities – Frequently used business logic patterns.
-- Custom Hooks Templates – Quickly scaffold hooks.py entries.
-- Python, JavaScript, and Jinja Support – Context-aware snippets for multiple languages used in ERPNext apps.
+- Prebuilt Frappe snippets: Commands, DocTypes, API calls, server scripts.  
+- ERPNext utilities: Common business logic patterns.  
+- Custom hooks templates for `hooks.py`.  
+- Supports Python, JavaScript, and Jinja snippets.
 
 📦 **Installation**
 
-You can install this extension from the Visual Studio Marketplace.
-
-**From VS Code:**
-
-1. Open Extensions sidebar (`Ctrl+Shift+X` / `Cmd+Shift+X` on Mac).
-2. Search for **Frappe ERPNext Snippets**.
+**From VS Code:**  
+1. Open Extensions (`Ctrl+Shift+X` / `Cmd+Shift+X`).  
+2. Search for **Frappe ERPNext Snippets**.  
 3. Click **Install**.
 
 **From Command Line:**
 
 ```bash
-code --install-extension FrappeERPnextSnippets.frappe-erpnext-snippets
+code --install-extension ehsanjavaid.frappe-erpnext-snippets
+```
 
-🚀 Usage
+🚀 **Usage**
 
-Open a .py, .js, or .html/.jinja file in VS Code.
+Open `.py`, `.js`, or `.html/.jinja` files and start typing snippet prefixes like `frappe.get_doc` or `frappe.call`. Press Tab or Enter to insert.
 
-Start typing the snippet prefix (e.g., frappe.get_doc, frappe.call) to trigger IntelliSense.
+🛠 **Development**
 
-Press Tab or Enter to insert the snippet.
+1. Clone repo:  
+   ```bash
+   git clone https://github.com/ehsanjavaid/frappe-erpnext-snippets.git
+   ```
+2. Edit `snippets/frappe.json` to add/update snippets.  
+3. Build `.vsix` file:  
+   ```bash
+   vsce package
+   ```
 
-Example(Python)
+🤝 **Contributing**
 
-🛠 Development
+PRs welcome! Fork, branch, and submit a pull request.
 
-If you want to modify or add new snippets:
+📬 **Author**
 
-1. Clone this repo:
-git clone https://github.com/ehsanjavaid/frappe-erpnext-snippets.git
-
-2. Open in VS Code
-3. Edit snippets/frappe.json to add/update snippets.
-4. Build the .vsix file:
-vsce package
-
-🤝 Contributing
-
-Pull requests are welcome!
-If you’d like to improve or add new snippets:
-
-Fork the repo
-
-Create a new branch
-
-Submit a PR
-
-📬 Author
-
-Developed by Ahsan Javaid
-For questions or suggestions, feel free to open an issue.
-
-
----
-
-If you want, I can also help you add badges, links, or improve the wording! Would you like me to?
+Developed by Ahsan Javaid. Open issues for questions or suggestions.

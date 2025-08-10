@@ -2,7 +2,7 @@
   "name": "frappe-erpnext-snippets",
   "displayName": "Frappe ERPNext Snippets",
   "description": "Ready-to-use Frappe Framework & ERPNext code snippets for Python, JS, and Jinja. ",
-  "publisher": "Ahsan Javaid",
+  "publisher": "FrappeERPnextSnippets",
   "version": "1.0.1",
   "icon": "assets/icon.png",
   "galleryBanner": {
@@ -13,7 +13,8 @@
     "vscode": "^1.102.0"
   },
   "categories": [
-    "Snippets"
+    "Snippets",
+    "Programming Languages"
   ],
   "repository": {
   "type": "git",
