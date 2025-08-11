@@ -12,8 +12,7 @@ A VS Code extension with handy snippets for faster development in Frappe Framewo
 ---
 
 ## 🎥 Demo
-[![Watch Demo](assets/demo-preview.png)](assets/video.mp4)  
-*Click the image to watch the demo.*
+![Frappe ERPNext Snippets Demo](assets/video.gif)
 
 ---
 
