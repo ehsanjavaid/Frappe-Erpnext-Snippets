@@ -8,7 +8,15 @@ A VS Code extension with handy snippets for faster development in Frappe Framewo
 - ERPNext utilities: Common business logic patterns.  
 - Custom hooks templates for `hooks.py`.  
 - Supports Python, JavaScript, and Jinja snippets.
-Example-:
+
+---
+
+## 🎥 Demo
+[![Watch Demo](assets/demo-preview.png)](assets/video.mp4)  
+*Click the image to watch the demo.*
+
+---
+
 
 📦 **Installation**
 
