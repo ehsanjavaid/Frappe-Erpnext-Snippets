@@ -124,55 +124,15 @@
     ],
     "description": "If-Else condition in Jinja"
   },
-  "ERPNext Print Format Header": {
-    "prefix": "erp-print-header",
+  
+  "Frappe DB Count": {
+    "prefix": "frappe-dbcount",
     "body": [
-      "<div class='print-heading'>",
-      "  <h2>${1:Company Name}</h2>",
-      "  <p>${2:Address}</p>",
-      "</div>"
+      "count = frappe.db.count(\"${1:DocType}\", {",
+      "    \"${2:field}\": \"${3:value}\"",
+      "})"
     ],
-    "description": "Basic print format header"
-  },
-  "ERPNext Print Format Table": {
-    "prefix": "erp-print-table",
-    "body": [
-      "<table class='table table-bordered'>",
-      "  <thead>",
-      "    <tr>",
-      "      <th>${1:Column 1}</th>",
-      "      <th>${2:Column 2}</th>",
-      "    </tr>",
-      "  </thead>",
-      "  <tbody>",
-      "    {% for row in ${3:items} %}",
-      "    <tr>",
-      "      <td>{{ row.${4:field1} }}</td>",
-      "      <td>{{ row.${5:field2} }}</td>",
-      "    </tr>",
-      "    {% endfor %}",
-      "  </tbody>",
-      "</table>"
-    ],
-    "description": "ERPNext print format table layout"
-  },
-  "ERPNext Doc Field": {
-    "prefix": "erp-doc-field",
-    "body": [
-      "{{ doc.${1:fieldname} }}"
-    ],
-    "description": "Insert a field from the document in print format"
-  },
-  "Frappe Python DB Set Value": {
-    "prefix": "frappe-dbset",
-    "body": [
-      "",
-      "@frappe.whitelist()",
-      "def set_${1:doctype}_${2:field}(${3:name}, ${4:value}):",
-      "    frappe.db.set_value('${1:doctype}', ${3:name}, '${2:field}', ${4:value})",
-      "    return 'Value updated successfully'"
-    ],
-    "description": "Set a field value in the database directly"
+    "description": "Insert frappe.db.count snippet"
   },
   "Frappe Python Get All": {
     "prefix": "frappe-getall",
@@ -266,34 +226,7 @@
     ],
     "description": "Jinja loop for table generation"
   },
-  "ERPNext Add Custom Field": {
-    "prefix": "erp-addcustomfield",
-    "body": [
-      "import frappe",
-      "from frappe.custom.doctype.custom_field.custom_field import create_custom_field",
-      "",
-      "def add_custom_field():",
-      "    field = {",
-      "        'fieldname': '${1:custom_field}',",
-      "        'label': '${2:Custom Field}',",
-      "        'fieldtype': '${3:Data}',",
-      "        'insert_after': '${4:existing_field}',",
-      "    }",
-      "    create_custom_field('${5:DocType}', field)"
-    ],
-    "description": "Programmatically add a custom field"
-  },
-  "ERPNext Hook Event": {
-    "prefix": "erp-hook",
-    "body": [
-      "'${1:DocType}': {",
-      "    'on_update': '${2:app.module.function}',",
-      "    'after_insert': '${3:app.module.function}',",
-      "    'on_trash': '${4:app.module.function}'",
-      "}"
-    ],
-    "description": "Hook events for a DocType"
-  },
+  
   "Frappe Python REST GET": {
     "prefix": "frappe-restget",
     "body": [
@@ -372,71 +305,7 @@
     ],
     "description": "Log debug info to Frappe error log"
   },
-  "ERPNext Payment Entry Creation": {
-    "prefix": "erp-paymententry",
-    "body": [
-      "",
-      "@frappe.whitelist()",
-      "def create_payment_entry(${1:party_type}, ${2:party}, ${3:amount}):",
-      "    pe = frappe.get_doc({",
-      "        'doctype': 'Payment Entry',",
-      "        'payment_type': 'Receive',",
-      "        'party_type': ${1:party_type},",
-      "        'party': ${2:party},",
-      "        'paid_amount': ${3:amount},",
-      "        'received_amount': ${3:amount},",
-      "        'mode_of_payment': '${4:Cash}',",
-      "        'posting_date': frappe.utils.nowdate()",
-      "    })",
-      "    pe.insert(ignore_permissions=True)",
-      "    pe.submit()",
-      "    return pe"
-    ],
-    "description": "Programmatically create a Payment Entry"
-  },
-  "ERPNext Sales Invoice Creation": {
-    "prefix": "erp-salesinvoice",
-    "body": [
-      "",
-      "@frappe.whitelist()",
-      "def create_sales_invoice(${1:customer}, ${2:item_code}, ${3:qty}, ${4:rate}):",
-      "    si = frappe.get_doc({",
-      "        'doctype': 'Sales Invoice',",
-      "        'customer': ${1:customer},",
-      "        'items': [{",
-      "            'item_code': ${2:item_code},",
-      "            'qty': ${3:qty},",
-      "            'rate': ${4:rate}",
-      "        }]",
-      "    })",
-      "    si.insert(ignore_permissions=True)",
-      "    si.submit()",
-      "    return si"
-    ],
-    "description": "Create a Sales Invoice programmatically"
-  },
-  "ERPNext Stock Entry Creation": {
-    "prefix": "erp-stockentry",
-    "body": [
-      "",
-      "@frappe.whitelist()",
-      "def create_stock_entry(${1:item_code}, ${2:qty}, ${3:from_warehouse}, ${4:to_warehouse}):",
-      "    se = frappe.get_doc({",
-      "        'doctype': 'Stock Entry',",
-      "        'stock_entry_type': 'Material Transfer',",
-      "        'items': [{",
-      "            'item_code': ${1:item_code},",
-      "            'qty': ${2:qty},",
-      "            's_warehouse': ${3:from_warehouse},",
-      "            't_warehouse': ${4:to_warehouse}",
-      "        }]",
-      "    })",
-      "    se.insert(ignore_permissions=True)",
-      "    se.submit()",
-      "    return se"
-    ],
-    "description": "Create a Stock Entry programmatically"
-  },
+  
   "Frappe Python Send Email": {
     "prefix": "frappe-email",
     "body": [
@@ -477,48 +346,7 @@
     ],
     "description": "Check if document exists in DB"
   },
-  "ERPNext Purchase Invoice Creation": {
-    "prefix": "erp-purchaseinvoice",
-    "body": [
-      "",
-      "@frappe.whitelist()",
-      "def create_purchase_invoice(${1:supplier}, ${2:item_code}, ${3:qty}, ${4:rate}):",
-      "    pi = frappe.get_doc({",
-      "        'doctype': 'Purchase Invoice',",
-      "        'supplier': ${1:supplier},",
-      "        'items': [{",
-      "            'item_code': ${2:item_code},",
-      "            'qty': ${3:qty},",
-      "            'rate': ${4:rate}",
-      "        }]",
-      "    })",
-      "    pi.insert(ignore_permissions=True)",
-      "    pi.submit()",
-      "    return pi"
-    ],
-    "description": "Create a Purchase Invoice programmatically"
-  },
-  "ERPNext Journal Entry": {
-    "prefix": "erp-journalentry",
-    "body": [
-      "",
-      "@frappe.whitelist()",
-      "def create_journal_entry():",
-      "    je = frappe.get_doc({",
-      "        'doctype': 'Journal Entry',",
-      "        'voucher_type': 'Journal Entry',",
-      "        'posting_date': frappe.utils.nowdate(),",
-      "        'accounts': [",
-      "            {'account': '${1:Debtor}', 'debit_in_account_currency': ${2:amount}},",
-      "            {'account': '${3:Creditor}', 'credit_in_account_currency': ${2:amount}}",
-      "        ]",
-      "    })",
-      "    je.insert(ignore_permissions=True)",
-      "    je.submit()",
-      "    return je"
-    ],
-    "description": "Create a Journal Entry"
-  },
+  
   "Frappe Refresh Field": {
     "prefix": "frappe-refreshfield",
     "body": [
@@ -564,5 +392,17 @@
       "});"
     ],
     "description": "Add a custom button on form"
-  }
+  },
+  "Frappe Python DB Set Value": {
+        "prefix": "frappe-dbset",
+        "body": [
+            "",
+            "@frappe.whitelist()",
+            "def set_${1:doctype}_${2:field}(${3:name}, ${4:value}):",
+            "    frappe.db.set_value('${1:doctype}', ${3:name}, '${2:field}', ${4:value})",
+            "    return 'Value updated successfully'"
+        ],
+        "description": "Set a field value in the database directly"
+    }
+    
 }
