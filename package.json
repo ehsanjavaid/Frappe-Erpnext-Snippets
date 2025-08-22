@@ -3,7 +3,7 @@
   "displayName": "Frappe ERPNext Snippets",
   "description": "Ready-to-use Frappe Framework & ERPNext code snippets for Python, JS, and Jinja. ",
   "publisher": "FrappeERPnextSnippets",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "icon": "assets/logo.png",
   "galleryBanner": {
     "color": "#2490ef",
