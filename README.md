@@ -2,14 +2,23 @@
 
 A VS Code extension with handy snippets for faster development in Frappe Framework and ERPNext. Quickly insert common patterns, API calls, hooks, and more.
 
-✨ **Features**
+## Features
 
-- Prebuilt Frappe snippets: Commands, DocTypes, API calls, server scripts.  
-- ERPNext utilities: Common business logic patterns.  
-- Custom hooks templates for `hooks.py`.  
-- Supports Python, JavaScript, and Jinja snippets.
+### 🟢 Runtime Status
+- This extension is lightweight with **no background processes**.
+- It only provides snippets, so it has **zero impact on performance**.
 
----
+### ⚡ Activation Events
+- Snippets are automatically available when editing files in:
+  - **ERPNext**
+  - **Frappe**
+  - **Jinja**
+  - **Bench**
+
+### ⌨️ Commands
+- No custom commands.
+- All functionality is provided via **snippets**.
+
 
 ## 🎥 Demo
 ![Frappe ERPNext Snippets Demo](assets/video.gif)
