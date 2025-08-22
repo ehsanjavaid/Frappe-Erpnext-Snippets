@@ -1,0 +1,37 @@
+{
+    "Bench Start": {
+        "prefix": "bench-start",
+        "body": [
+            "bench start"
+        ],
+        "description": "Start the Frappe development server"
+    },
+    "Bench New App": {
+        "prefix": "bench-newapp",
+        "body": [
+            "bench new-app ${1:app_name}"
+        ],
+        "description": "Create a new Frappe app"
+    },
+    "Bench New Site": {
+        "prefix": "bench-newsite",
+        "body": [
+            "bench new-site ${1:site_name}"
+        ],
+        "description": "Create a new Frappe site"
+    },
+    "Bench Migrate": {
+        "prefix": "bench-migrate",
+        "body": [
+            "bench migrate"
+        ],
+        "description": "Apply schema changes"
+    },
+    "Bench Restart": {
+        "prefix": "bench-restart",
+        "body": [
+            "bench restart"
+        ],
+        "description": "Restart Frappe services"
+    }
+}

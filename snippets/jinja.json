@@ -1,0 +1,135 @@
+{
+    "Jinja For Loop": {
+        "prefix": "jinja-for",
+        "body": [
+            "{% for ${1:item} in ${2:items} %}",
+            "  {{ ${1:item} }}",
+            "{% endfor %}"
+        ],
+        "description": "Loop through items in Jinja template"
+    },
+    "Jinja If Condition": {
+        "prefix": "jinja-if",
+        "body": [
+            "{% if ${1:condition} %}",
+            "  ${2:content}",
+            "{% endif %}"
+        ],
+        "description": "If condition in Jinja"
+    },
+    "Jinja If Else": {
+        "prefix": "jinja-ifelse",
+        "body": [
+            "{% if ${1:condition} %}",
+            "  ${2:content_if_true}",
+            "{% else %}",
+            "  ${3:content_if_false}",
+            "{% endif %}"
+        ],
+        "description": "If-Else condition in Jinja"
+    },
+    "Jinja Table Loop": {
+        "prefix": "jinja-table",
+        "body": [
+            "<table>",
+            "  <thead>",
+            "    <tr>",
+            "      <th>${1:Header 1}</th>",
+            "      <th>${2:Header 2}</th>",
+            "    </tr>",
+            "  </thead>",
+            "  <tbody>",
+            "    {% for row in ${3:items} %}",
+            "    <tr>",
+            "      <td>{{ row.${4:field1} }}</td>",
+            "      <td>{{ row.${5:field2} }}</td>",
+            "    </tr>",
+            "    {% endfor %}",
+            "  </tbody>",
+            "</table>"
+        ],
+        "description": "Jinja loop for table generation"
+    },
+    "Jinja For Loop with Index": {
+        "prefix": "jinja-forindex",
+        "body": [
+            "{% for ${1:item} in ${2:items} %}",
+            "  {{ loop.index }}. {{ ${1:item} }}",
+            "{% endfor %}"
+        ],
+        "description": "Loop with index in Jinja"
+    },
+    "Jinja Elif Condition": {
+        "prefix": "jinja-elif",
+        "body": [
+            "{% if ${1:condition1} %}",
+            "  ${2:content1}",
+            "{% elif ${3:condition2} %}",
+            "  ${4:content2}",
+            "{% else %}",
+            "  ${5:default_content}",
+            "{% endif %}"
+        ],
+        "description": "If-Elif-Else condition"
+    },
+    "Jinja Variable Set": {
+        "prefix": "jinja-set",
+        "body": [
+            "{% set ${1:variable} = ${2:value} %}"
+        ],
+        "description": "Set a variable in Jinja"
+    },
+    "Jinja Comment": {
+        "prefix": "jinja-comment",
+        "body": [
+            "{# ${1:Your comment here} #}"
+        ],
+        "description": "Jinja comment block"
+    },
+    "Jinja Filter Pipe": {
+        "prefix": "jinja-filter",
+        "body": [
+            "{{ ${1:variable} | ${2:filter} }}"
+        ],
+        "description": "Apply a Jinja filter to a variable"
+    },
+    "Jinja Include": {
+        "prefix": "jinja-include",
+        "body": [
+            "{% include '${1:template.html}' %}"
+        ],
+        "description": "Include another template"
+    },
+    "Jinja Macro": {
+        "prefix": "jinja-macro",
+        "body": [
+            "{% macro ${1:macro_name}(${2:args}) %}",
+            "  ${3:content}",
+            "{% endmacro %}"
+        ],
+        "description": "Define a Jinja macro"
+    },
+    "Jinja Call Macro": {
+        "prefix": "jinja-callmacro",
+        "body": [
+            "{{ ${1:macro_name}(${2:args}) }}"
+        ],
+        "description": "Call a Jinja macro"
+    },
+    "Jinja Extends Base": {
+        "prefix": "jinja-extends",
+        "body": [
+            "{% extends '${1:base.html}' %}"
+        ],
+        "description": "Extend from a base template"
+    },
+    "Jinja Block": {
+        "prefix": "jinja-block",
+        "body": [
+            "{% block ${1:block_name} %}",
+            "  ${2:content}",
+            "{% endblock %}"
+        ],
+        "description": "Define a Jinja block"
+    }
+}

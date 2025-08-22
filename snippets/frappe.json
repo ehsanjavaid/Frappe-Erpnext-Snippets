@@ -60,71 +60,6 @@
     ],
     "description": "Delete a document in Frappe"
   },
-  "Bench Start": {
-    "prefix": "bench-start",
-    "body": [
-      "bench start"
-    ],
-    "description": "Start the Frappe development server"
-  },
-  "Bench New App": {
-    "prefix": "bench-newapp",
-    "body": [
-      "bench new-app ${1:app_name}"
-    ],
-    "description": "Create a new Frappe app"
-  },
-  "Bench New Site": {
-    "prefix": "bench-newsite",
-    "body": [
-      "bench new-site ${1:site_name}"
-    ],
-    "description": "Create a new Frappe site"
-  },
-  "Bench Migrate": {
-    "prefix": "bench-migrate",
-    "body": [
-      "bench migrate"
-    ],
-    "description": "Apply schema changes"
-  },
-  "Bench Restart": {
-    "prefix": "bench-restart",
-    "body": [
-      "bench restart"
-    ],
-    "description": "Restart Frappe services"
-  },
-  "Jinja For Loop": {
-    "prefix": "jinja-for",
-    "body": [
-      "{% for ${1:item} in ${2:items} %}",
-      "  {{ ${1:item} }}",
-      "{% endfor %}"
-    ],
-    "description": "Loop through items in Jinja template"
-  },
-  "Jinja If Condition": {
-    "prefix": "jinja-if",
-    "body": [
-      "{% if ${1:condition} %}",
-      "  ${2:content}",
-      "{% endif %}"
-    ],
-    "description": "If condition in Jinja"
-  },
-  "Jinja If Else": {
-    "prefix": "jinja-ifelse",
-    "body": [
-      "{% if ${1:condition} %}",
-      "  ${2:content_if_true}",
-      "{% else %}",
-      "  ${3:content_if_false}",
-      "{% endif %}"
-    ],
-    "description": "If-Else condition in Jinja"
-  },
-  
   "Frappe DB Count": {
     "prefix": "frappe-dbcount",
     "body": [
@@ -204,29 +139,6 @@
     ],
     "description": "Trigger when a field value changes"
   },
-  "Jinja Table Loop": {
-    "prefix": "jinja-table",
-    "body": [
-      "<table>",
-      "  <thead>",
-      "    <tr>",
-      "      <th>${1:Header 1}</th>",
-      "      <th>${2:Header 2}</th>",
-      "    </tr>",
-      "  </thead>",
-      "  <tbody>",
-      "    {% for row in ${3:items} %}",
-      "    <tr>",
-      "      <td>{{ row.${4:field1} }}</td>",
-      "      <td>{{ row.${5:field2} }}</td>",
-      "    </tr>",
-      "    {% endfor %}",
-      "  </tbody>",
-      "</table>"
-    ],
-    "description": "Jinja loop for table generation"
-  },
-  
   "Frappe Python REST GET": {
     "prefix": "frappe-restget",
     "body": [
@@ -305,7 +217,6 @@
     ],
     "description": "Log debug info to Frappe error log"
   },
-  
   "Frappe Python Send Email": {
     "prefix": "frappe-email",
     "body": [
@@ -346,7 +257,6 @@
     ],
     "description": "Check if document exists in DB"
   },
-  
   "Frappe Refresh Field": {
     "prefix": "frappe-refreshfield",
     "body": [
@@ -394,15 +304,14 @@
     "description": "Add a custom button on form"
   },
   "Frappe Python DB Set Value": {
-        "prefix": "frappe-dbset",
-        "body": [
-            "",
-            "@frappe.whitelist()",
-            "def set_${1:doctype}_${2:field}(${3:name}, ${4:value}):",
-            "    frappe.db.set_value('${1:doctype}', ${3:name}, '${2:field}', ${4:value})",
-            "    return 'Value updated successfully'"
-        ],
-        "description": "Set a field value in the database directly"
-    }
-    
+    "prefix": "frappe-dbset",
+    "body": [
+      "",
+      "@frappe.whitelist()",
+      "def set_${1:doctype}_${2:field}(${3:name}, ${4:value}):",
+      "    frappe.db.set_value('${1:doctype}', ${3:name}, '${2:field}', ${4:value})",
+      "    return 'Value updated successfully'"
+    ],
+    "description": "Set a field value in the database directly"
+  }
 }
