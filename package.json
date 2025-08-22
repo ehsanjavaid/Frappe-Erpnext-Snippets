@@ -26,13 +26,21 @@
   "main": "./out/extension.js",
   "contributes": {
     "snippets": [
-      {
+       {
         "language": "python",
         "path": "./snippets/frappe.json"
       },
       {
-        "language": "html",
-        "path": "./snippets/frappe.json"
+        "language": "python",
+        "path": "./snippets/erpnext.json"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/bench.json"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/jinja.json"
       }
     ],
     "commands": [
